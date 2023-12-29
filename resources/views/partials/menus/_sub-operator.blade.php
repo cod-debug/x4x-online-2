@@ -54,7 +54,7 @@
                 <li class="nav-item">
                     <a href="{{ route('master.agents') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
-                        <p>Master Agents</p>
+                        <p>Sub Operator</p>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -129,7 +129,7 @@
         @if(canViewMasterAgents(Auth::user()->type) || canViewAgents(Auth::user()->type))
             <li class="nav-header">USERS</li>
         @endif
-        @if(canViewOperators(Auth::user()->type))
+        @if(canViewIncorporator(Auth::user()->type))
             {{-- <li class="nav-item">
                 <a href="{{ route('sub.operators') }}" class="nav-link">
                     <i class="nav-icon fas fa-user-astronaut"></i>
@@ -141,19 +141,19 @@
             <li class="nav-item">
                 <a href="{{ route('master.agents') }}" class="nav-link">
                     <i class="nav-icon fas fa-user-secret"></i>
-                    <p>Operators</p>
+                    <p>Incorporator</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('master.agents') }}" class="nav-link">
                     <i class="nav-icon fas fa-user-secret"></i>
-                    <p>Sub Operators</p>
+                    <p>Operator</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('master.agents') }}" class="nav-link">
                     <i class="nav-icon fas fa-user-secret"></i>
-                    <p>Master Agents</p>
+                    <p>Sub Operator</p>
                 </a>
             </li>
         @endif

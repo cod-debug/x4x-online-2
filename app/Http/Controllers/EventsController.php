@@ -81,7 +81,7 @@ class EventsController extends Controller
 
 
     public function startEvent(Request $request, $id){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -98,7 +98,7 @@ class EventsController extends Controller
     }
 
     public function endEvent($id){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 

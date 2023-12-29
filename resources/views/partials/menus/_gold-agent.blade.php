@@ -54,7 +54,7 @@
                 <li class="nav-item">
                     <a href="{{ route('silver.agents') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
-                        <p>Silver Agents</p>
+                        <p>Agent</p>
                     </a>
                 </li>
                 <li class="nav-item">

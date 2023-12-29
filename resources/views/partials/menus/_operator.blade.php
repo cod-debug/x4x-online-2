@@ -54,7 +54,7 @@
                 <li class="nav-item">
                     <a href="{{ route('sub.operators') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
-                        <p>Sub Operators</p>
+                        <p>Operator</p>
                     </a>
                 </li>
                 <li class="nav-item">

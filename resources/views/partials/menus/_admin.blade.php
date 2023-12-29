@@ -68,7 +68,7 @@
                 </li>
 
                 <li class="nav-header">Players</li>
-                
+
                 <li class="nav-item">
                     <a href="{{ route('players') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -99,32 +99,32 @@
                 <li class="nav-item">
                     <a href="{{ route('operators') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-secret"></i>
-                        <p>Operators</p>
+                        <p>Incorporator</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('sub.operators') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-secret"></i>
-                        <p>Sub Operators</p>
+                        <p>Operator</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('master.agents') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-secret"></i>
-                        <p>Master Agents</p>
+                        <p>Sub Operator</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('agents') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p>Sub Agents</p>
+                        <p>Master Agent</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('silver.agents') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-tie"></i>
-                        <p>Silver Agents</p>
+                        <p>Agent</p>
                     </a>
                 </li>
 
