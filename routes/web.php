@@ -33,7 +33,9 @@ use App\Models\User;
 // })->name('home');
 
 Route::group(['middleware' => ['web','throttle:60,1']], function () {
-
+    Route::get('/login-temp',function(){
+        return view('auth.login');
+    });
     Route::get('/', function () {
         return view('login2');
     })->name('home');

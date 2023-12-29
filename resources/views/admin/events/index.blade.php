@@ -42,30 +42,35 @@
                                 <td>{{date('m/d/Y',strtotime($event->created_at))}}</td>
                                 <td><span class="{{$event->status}}">{{strtoupper($event->status)}}</span></td>
                                 <td>
-                                    @if($event->game_id == 1)
-                                    <a href="{{ route('show.event', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{ route('show.event', $event->id) }}"
+                                        class="btn btn-primary btn-sm">View</a>
+                                    @if ($event->game_id == 1)
                                     @elseif($event->game_id == 17)
-                                    <a href="{{ route('show.event.rg', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('show.event.rg', $event->id) }}" class="btn btn-primary btn-sm">View</a> --}}
                                     @elseif($event->game_id == 14)
-                                    <a href="{{ route('show.event.cg', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('show.event.cg', $event->id) }}" class="btn btn-primary btn-sm">View</a> --}}
                                     @elseif($event->game_id == 26)
-                                    <a href="{{ route('show.event.pl', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('show.event.pl', $event->id) }}" class="btn btn-primary btn-sm">View</a> --}}
                                     @elseif($event->game_id == 27)
-                                    <a href="{{ route('show.event.dp', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('show.event.dp', $event->id) }}" class="btn btn-primary btn-sm">View</a> --}}
                                     @else
-                                    <a href="{{ route('game.declare', $event->id) }}" class="btn btn-primary btn-sm">View</a>
+                                        {{-- <a href="{{ route('game.declare', $event->id) }}" class="btn btn-primary btn-sm">View</a> --}}
                                     @endif
 
-                                    @if($event->status != 'completed')
-                                    <a href="{{ route('edit.event', $event->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                    @if ($event->status != 'completed')
+                                        <a href="{{ route('edit.event', $event->id) }}"
+                                            class="btn btn-success btn-sm">Edit</a>
                                     @endif
-                                    
+                                    {{-- @if ($event->status == 'completed') --}}
+                                    {{-- @endif --}}
+                                    <a href="{{ route('show.fights', $event->id) }}"
+                                        class="btn btn-warning btn-sm">Fights</a>
+
                                     @if(Auth::user()->type == 'super-admin')
                                         <button data-url="{{ route('delete.event', $event->id) }}"
                                             data-status="{{ $event->status }}"
                                             class="btn btn-danger btn-del-event btn-sm">Delete</button>
                                     @endif
-                                    <a href="{{ route('show.fights', $event->id) }}" class="btn btn-warning btn-sm">Fights</a>
                                 </td>
                             </tr>
                             @endforeach
