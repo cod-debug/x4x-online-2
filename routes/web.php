@@ -271,7 +271,7 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
         $settings = \App\Models\Setting::where('setting_name','player_deduction')->first();
         $playerDeduction = $settings->value;
         if($event){
-            if(Auth::user()->getRawOriginal('type') != 'declarator' || Auth::user()->id != $event->user_id){
+            if(Auth::user()->getRawOriginal('type') == 'declarator' && Auth::user()->id != $event->created_by){
                 abort(403,"You're not allowed to access this Event!");
             }
             $fight = \App\Models\Fight::find($event->active_fight);
@@ -300,7 +300,7 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
         if(Auth::user()->type != 'super-admin' && Auth::user()->type != 'declarator'){
             return redirect()->route('dashboard');
         }
-        if(Auth::user()->getRawOriginal('type') != 'declarator' || Auth::user()->id != $event->user_id){
+        if(Auth::user()->getRawOriginal('type') == 'declarator' && Auth::user()->id != $event->created_by){
             abort(403,"You're not allowed to access this Event!");
         }
 

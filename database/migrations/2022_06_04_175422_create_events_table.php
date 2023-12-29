@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('live_url');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->enum('status',['closed','open','completed'])->default('closed');
+            $table->string('file_banner')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');

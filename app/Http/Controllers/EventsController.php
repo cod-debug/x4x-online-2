@@ -70,7 +70,11 @@ class EventsController extends Controller
         if(Auth::user()->type != 'declarator'){
             return redirect()->route('dashboard');
         }
-        Event::find($id)->delete();
+        $event = Event::find($id);
+        $image_to_delete = $event->file_banner;
+        unlink($image_to_delete);
+        $event->delete();
+        // Event::find($id)->delete();
         Session::flash('success', 'Event updated successfully!');
         return back();
     }
