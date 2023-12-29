@@ -1311,7 +1311,7 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
         return view('admin.games.edit',compact('game'));
     })->name('edit.game');
 
-    Route::get('/delete-game/{id}',[GameController::class,'deleteGame'])->name('delete.game');
+    Route::post('/delete-game/{id}',[GameController::class,'deleteGame'])->name('delete.game');
     Route::post('/insert-game',[GameController::class,'createGame'])->name('insert.game');
     Route::post('/update-game/{id}',[GameController::class,'updateGame'])->name('update.game');
 
