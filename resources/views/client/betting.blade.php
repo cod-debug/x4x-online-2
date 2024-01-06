@@ -317,16 +317,14 @@
                             </div>
                         </div>
                         <div class="row pb-2">
-                            <div class="col-md-8">
-                                <div class="input-group input-group-sm w-75">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="background-color: transparent;border: none;">
-                                            <strong class="mr-2 text-18">Current Points: </strong>
-                                            <i class="fas fa-money-bill-alt text-18 text-warning"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="pl-0 text-18 form-control text-warning font-weight-bold wallet-balance border-0 bg-black" style="color:#ffc107!important;" readonly value="{{bcdiv(Auth::user()->wallet->balance,1,2)}}">
-                                </div>
+                            <div class="col-md-8 col-12">
+                                <span class="" style="background-color: transparent;border: none;">
+                                    <strong class="mr-2 text-18">Current Points: </strong>
+                                    <i class="fas fa-money-bill-alt text-18 text-warning mr-2"></i>
+                                    <span class="pl-0 text-18 text-warning font-weight-bold wallet-balance border-0 bg-black" style="color:#ffc107!important;">
+                                        {{ number_format(bcdiv(Auth::user()->wallet->balance, 1, 2) , 2, '.', ',') }}
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="row">

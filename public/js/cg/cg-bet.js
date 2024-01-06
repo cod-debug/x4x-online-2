@@ -134,7 +134,7 @@ function updateBets(betBlue,betGrey,betRed,betYellow,betWhite,betPink){
 
 
 function updateWalletBalance(bal){
-    $('.wallet-balance').val(bal);
+    $('.wallet-balance').html(bal);
 }
 
 $('.btn-clear').on('click',function(){
@@ -184,7 +184,7 @@ function placeBet(url,eventId,fightId,amount,bet){
                         '',
                         'info'
                     );
-                    $('.wallet-balance').val(res.balance);
+                    $('.wallet-balance').html(res.balance);
                     $('.my-bet-blue').text(parseFloat(res.myBetBlue).toFixed(2));
                     $('.my-bet-grey').text(parseFloat(res.myBetGrey).toFixed(2));
                     $('.my-bet-red').text(parseFloat(res.myBetRed).toFixed(2));

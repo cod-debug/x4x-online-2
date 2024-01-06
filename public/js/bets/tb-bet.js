@@ -170,7 +170,7 @@
 
 
     function updateWalletBalance(bal){
-        $('.wallet-balance').val(bal);
+        $('.wallet-balance').html(bal);
     }
     $('.btn-bet-amt').on('click',function(){
         let amt = $(this).data('value');
@@ -206,7 +206,7 @@
                         data : data,
                         success : function(res){
                             console.log(res);
-                            $('.wallet-balance').val(res.balance);
+                            $('.wallet-balance').html(res.balance);
                             Swal.fire('Bet has been placed!','','info');
                             $('#input-bet-amount').val(null);
 

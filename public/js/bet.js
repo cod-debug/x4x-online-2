@@ -243,13 +243,13 @@
 
 
     function updateWalletBalance(bal){
-        $('.wallet-balance').val(bal);
+        $('.wallet-balance').html(bal);
     }
 
     $('.btn-bet-amt').on('click',function(){
         let amt = $(this).data('value');
         if(amt == 'ALL'){
-            $('#input-bet-amount').val($('.wallet-balance').val());
+            $('#input-bet-amount').val($('.wallet-balance').html());
         }else{
             $('#input-bet-amount').val(amt);
         }
@@ -288,7 +288,7 @@
                         data : data,
                         success : function(res){
                             console.log(res);
-                            $('.wallet-balance').val(numberWithCommas(res.balance));
+                            $('.wallet-balance').html(numberWithCommas(res.balance));
                             Swal.fire('Bet has been placed!','','info');
                             $('#input-bet-amount').val(null);
 
