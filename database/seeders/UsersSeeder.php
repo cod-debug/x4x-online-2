@@ -226,8 +226,8 @@ class UsersSeeder extends Seeder
         $user->status = "active";
         $user->type = "player";
         $user->referral_code = md5("username".uniqid());
-        $user->referred_by = 7+1;
-        $user->created_by = 7+1;
+        $user->referred_by = 6;
+        $user->created_by = 6;
         $user->save();
         $wallet = new Wallet();
         $wallet->user_id = $user->id;
