@@ -40,11 +40,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Event Banner</label>
-                                    <input type="file" name="file_banner_upload" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
                                     <label>Live Fight URL</label>
                                     <input type="text" name="live_url" class="form-control" required>
                                 </div>

@@ -238,7 +238,7 @@
                             </div>
                         </div>
                         <div class="video-container" id="vid">
-                            <iframe width="100%" scrolling="no" src="<?php echo e($event->live_url); ?>" title="Live Cockfight" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            
                         </div>
                     <?php else: ?>
                         <div class="no-fight-available">

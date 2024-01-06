@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('styles'); ?>
 <style>
     .alert-warning,.alert-info{
@@ -80,7 +81,7 @@
                         $f = \App\Models\Fight::find($ev->active_fight)
                     ?>
 
-                    <div class="card-body text-center img-card-holder remove-bottom-rounded" style="background-image: url(<?php echo e(asset($ev->file_banner)); ?>)">
+                    <div class="card-body text-center img-card-holder remove-bottom-rounded" style="background-image: url(<?php echo e(asset($game->banner)); ?>)">
                         <?php if($game->status =='coming_soon'): ?>
                             <div class="img-card-holder coming-soon" style="background-image: url(<?php echo e(asset('images/soon.png')); ?>)"></div>
                         <?php endif; ?>

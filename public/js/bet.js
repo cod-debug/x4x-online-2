@@ -220,7 +220,7 @@
 
         let betMeronPre = parseInt($('#betMeron').text());
         let betWalaPre = parseInt($('#betWala').text());
-        
+
         let btMrn = (parseFloat(betMeron*100)/100)*multiplier;
         let btWla = (parseFloat(betWala*100)/100)*multiplier;
         let btDrw = (parseFloat(betDraw*100)/100)*multiplier;
@@ -288,7 +288,7 @@
                         data : data,
                         success : function(res){
                             console.log(res);
-                            $('.wallet-balance').val(res.balance);
+                            $('.wallet-balance').val(numberWithCommas(res.balance));
                             Swal.fire('Bet has been placed!','','info');
                             $('#input-bet-amount').val(null);
 

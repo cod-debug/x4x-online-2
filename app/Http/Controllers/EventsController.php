@@ -27,20 +27,19 @@ class EventsController extends Controller
 {
     public function createEvent(Request $request){
 
-        if (Auth::user()->type == 'super-admin') {
-
-        } else if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
+
         $request['created_by'] = Auth::id();
-        // file_banner_upload
-        if ($request->file('file_banner_upload')) {
-            $file = $request->file('file_banner_upload');
-            $filename = uniqid().'.'.$file->getClientOriginalExtension();
-            $file->move('images/banners/', $filename);
-            $bannerPath = 'images/banners/'.$filename;
-            $request['file_banner'] = $bannerPath;
-        }
+        // // file_banner_upload
+        // if ($request->file('file_banner_upload')) {
+        //     $file = $request->file('file_banner_upload');
+        //     $filename = uniqid().'.'.$file->getClientOriginalExtension();
+        //     $file->move('images/banners/', $filename);
+        //     $bannerPath = 'images/banners/'.$filename;
+        //     $request['file_banner'] = $bannerPath;
+        // }
         $event = Event::create($request->all());
 
         $fight = new Fight();
@@ -57,7 +56,7 @@ class EventsController extends Controller
     }
 
     public function updateEvent(Request $request, $id){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -67,7 +66,7 @@ class EventsController extends Controller
     }
 
     public function deleteEvent($id){
-        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
+        if (Auth::user()->type != 'declarator' || Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
         Event::find($id)->delete();
@@ -77,13 +76,14 @@ class EventsController extends Controller
 
 
     public function startEvent(Request $request, $id){
-        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
-            return redirect()->route('dashboard');
-        }
 
         $event = Event::find($id);
         $event->status = "open";
         $event->save();
+
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
+            return redirect()->route('dashboard');
+        }
 
         $fight = Fight::find($event->active_fight);
 
@@ -106,7 +106,7 @@ class EventsController extends Controller
     }
 
     public function changeFightStatus(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if(Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin'){
             return redirect()->route('dashboard');
         }
 
@@ -134,7 +134,7 @@ class EventsController extends Controller
 
 
     public function updateTeams(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -155,7 +155,7 @@ class EventsController extends Controller
 
 
     public function changeFightNumber(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -173,7 +173,7 @@ class EventsController extends Controller
     }
 
     public function placeGhostBet(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -184,7 +184,7 @@ class EventsController extends Controller
     }
 
     public function redeclareWinner(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 
@@ -480,7 +480,7 @@ class EventsController extends Controller
     }
 
     public function declareWinner(Request $request){
-        if(Auth::user()->type != 'declarator'){
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
         }
 

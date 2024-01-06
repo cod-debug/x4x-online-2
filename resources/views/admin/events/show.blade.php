@@ -144,7 +144,7 @@
                             <strong>Live Video</strong>
                             <div id="vid">
                                 @if($event->status == 'open' || $event->status == 'closed')
-                                <iframe width="100%" height="400" src="{{$event->live_url}}" title="Live Cockfight" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {{-- <iframe width="100%" height="400" src="{{$event->live_url}}" title="Live Cockfight" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                                 @endif
                             </div>
                             <div class="card mt-3">
