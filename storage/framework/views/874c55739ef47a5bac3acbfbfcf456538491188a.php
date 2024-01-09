@@ -142,8 +142,22 @@
                         <div class="col-md-6">
                             <strong>Live Video</strong>
                             <div id="vid">
-                                <?php if($event->status == 'open' || $event->status == 'closed'): ?>
-                                
+                                <?php
+                                    $liveUrl = $event->live_url;
+                                    $liveUrlExt = explode('.', $liveUrl);
+                                    $getLast = $liveUrlExt[count($liveUrlExt) - 1];
+                                ?>
+
+                                <?php if($getLast == 'm3u8'): ?>
+                                    <!-- Display video element if $getLast is 'm3u8' -->
+
+                                    <div id="player"></div>
+                                <?php else: ?>
+                                    <!-- Display iframe if $getLast is not 'm3u8' -->
+                                    <iframe id="liveIframe" width="100%" height="400" title="Live Cockfight"
+                                        frameborder="1"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen autoplay></iframe>
                                 <?php endif; ?>
                             </div>
                             <div class="card mt-3">
@@ -310,17 +324,18 @@
 
 <script src="<?php echo e(asset('js/declare-realtime.js')); ?>"></script>
 <script src="<?php echo e(asset('js/declare.js')); ?>"></script>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
 <script>
-    // var player = new Clappr.Player({
-    //         source: "<?php echo e($event->live_url); ?>",
-    //         mimeType: "application/x-mpegURL",
-    //         autoPlay: true,
-    //         height: "100%",
-    //         width: "100%",
-    //         plugins: {"core": [LevelSelector]},
-    //         parentId: "#vid"
-    // });
+    var player = new Clappr.Player({
+        source: "<?php echo e($event->live_url); ?>",
+        mimeType: "application/x-mpegURL",
+        autoPlay: true,
+        height: "100%",
+        width: "100%",
+        plugins: {"core": [LevelSelector]},
+        parentId: "#vid"
+    });
 </script>
 <?php $__env->stopSection(); ?>
 

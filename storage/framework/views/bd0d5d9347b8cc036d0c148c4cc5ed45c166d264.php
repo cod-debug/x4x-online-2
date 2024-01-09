@@ -5,29 +5,40 @@
     #fight-number{
         font-size: 18px;
     }
-    #vid{
-        /* height: 620px; */
-        position: relative;
-        padding-bottom: 56.25%;
-    }
-
-    #vid>iframe{
+    /* mobile */
+    @media  screen and (min-width: 0px) and (max-width: 400px) {
+        #vid {
+            height: 200px;
             /* height: 620px; */
-            position: absolute;
+            position: relative;
+            /* padding-bottom: 56.25%; */
+        }
+
+        #vid>iframe {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+        }
+    }
+    /* desktop or larger screens */
+    @media  screen and (min-width: 400px) {
+        #vid {
+            height: 500px;
+            /* height: 620px; */
+            position: relative;
+            /* padding-bottom: 56.25%; */
+        }
+
+        #vid>iframe {
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+        }
     }
-    /* @media  only screen and (max-width: 768px) {
-        #vid{
-            height: 280px;
-        }
-
-        #vid>iframe{
-            height: 250px;
-        }
-    } */
     .btn-bet-amt{
         font-size: 13px !important;
     }
@@ -237,8 +248,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="video-container" id="vid">
-                            
+                        <div id="vid">
+                            <?php
+                                $liveUrl = $event->live_url;
+                                $liveUrlExt = explode('.', $liveUrl);
+                                $getLast = $liveUrlExt[count($liveUrlExt) - 1];
+                            ?>
+
+                            <?php if($getLast == 'm3u8'): ?>
+                                <!-- Display video element if $getLast is 'm3u8' -->
+
+                                <div id="player"></div>
+                            <?php else: ?>
+                                <!-- Display iframe if $getLast is not 'm3u8' -->
+                                <iframe id="liveIframe" width="100%" height="400" title="Live Cockfight"
+                                    frameborder="1"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen autoplay></iframe>
+                            <?php endif; ?>
                         </div>
                     <?php else: ?>
                         <div class="no-fight-available">
@@ -486,28 +513,41 @@
 
 <script src="<?php echo e(asset('js/bet.js')); ?>"></script>
 <script src="<?php echo e(asset('js/realtime.js')); ?>"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script>
+    var player = new Clappr.Player({
+        source: "<?php echo e($event->live_url); ?>",
+        mimeType: "application/x-mpegURL",
+        autoPlay: true,
+        height: "100%",
+        width: "100%",
+        plugins: {"core": [LevelSelector]},
+        parentId: "#vid"
+    });
+</script>
 <script>
     function make_sticky(id) {
-    var e = $(id);
-    var w = $(window);
-    $('<div/>').insertBefore(id);
-    $('<div/>').hide().css('height',e.outerHeight()).insertAfter(id);
-    var n = e.next();
-    var p = e.prev();
-    function sticky_relocate() {
-      var window_top = w.scrollTop();
-      var div_top = p.offset().top;
-      if (window_top > div_top) {
-        e.addClass('sticky');
-        n.show();
-      } else {
-        e.removeClass('sticky');
-        n.hide();
-      }
+        var e = $(id);
+        var w = $(window);
+        $('<div/>').insertBefore(id);
+        $('<div/>').hide().css('height',e.outerHeight()).insertAfter(id);
+        var n = e.next();
+        var p = e.prev();
+        function sticky_relocate() {
+        var window_top = w.scrollTop();
+        var div_top = p.offset().top;
+        if (window_top > div_top) {
+            e.addClass('sticky');
+            n.show();
+        } else {
+            e.removeClass('sticky');
+            n.hide();
+        }
+        }
+        w.scroll(sticky_relocate);
+        sticky_relocate();
     }
-    w.scroll(sticky_relocate);
-    sticky_relocate();
-}
 
 // make_sticky('#vid');
 
