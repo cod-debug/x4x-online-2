@@ -66,8 +66,12 @@ class EventsController extends Controller
     }
 
     public function deleteEvent($id){
-        if (Auth::user()->type != 'declarator' || Auth::user()->type != 'super-admin') {
+        if (Auth::user()->type != 'declarator' && Auth::user()->type != 'super-admin') {
             return redirect()->route('dashboard');
+        }
+        $event = Event::find($id);
+        if(Auth::user()->id != $event->created_by && Auth::user()->type != 'super-admin'){
+            abort(403);
         }
         Event::find($id)->delete();
         Session::flash('success', 'Event updated successfully!');
