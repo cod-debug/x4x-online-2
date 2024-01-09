@@ -3,6 +3,18 @@
 
 @endsection
 @section('content')
+@php
+    function encrypt_data_url($data) {
+        $key = "sabungan-casino-game-fest";
+        $plaintext = $data;
+        $ivlen = openssl_cipher_iv_length($cipher = "AES-128-CBC");
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        $ciphertext_raw = openssl_encrypt($plaintext, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
+        $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+        $ciphertext = base64_encode($iv . $hmac . $ciphertext_raw);
+        return $ciphertext;
+    }
+@endphp
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -25,7 +37,12 @@
                                 <tr>
                                     <td>{{strtoupper($game->name)}}</td>
                                     <td><img src="{{ asset($game->banner) }}" width="150" height="50" alt=""></td>
-                                    <td>{{strtoupper($game->url)}}</td>
+                                    <td>
+                                        @php
+                                            $encrypted_text = encrypt_data_url($game->url);
+                                        @endphp
+                                        {{ strtoupper($encrypted_text) }}
+                                    </td>
                                     <td>{{strtoupper($game->plasada)}}%</td>
                                     <td>{{strtoupper($game->status)}}</td>
                                     <td>

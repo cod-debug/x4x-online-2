@@ -16,6 +16,18 @@
 </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+<?php
+    function encrypt_data_url($data) {
+        $key = "sabungan-casino-game-fest";
+        $plaintext = $data;
+        $ivlen = openssl_cipher_iv_length($cipher = "AES-128-CBC");
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        $ciphertext_raw = openssl_encrypt($plaintext, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
+        $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+        $ciphertext = base64_encode($iv . $hmac . $ciphertext_raw);
+        return $ciphertext;
+    }
+?>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -37,7 +49,21 @@
                             <tr>
                                 <td><?php echo e($event->event_id); ?></td>
                                 <td><?php echo e($event->name); ?></td>
-                                <td><?php echo e($event->live_url); ?></td>
+                                <td>
+                                    <?php
+                                        $encrypted_text = encrypt_data_url($event->live_url);
+                                        $string = $encrypted_text;
+                                        $chunks = str_split($string, strlen($string) / 3);
+                                    ?>
+                                    <?php echo e($chunks[0]); ?>
+
+                                    <br>
+                                    <?php echo e($chunks[1]); ?>
+
+                                    <br>
+                                    <?php echo e($chunks[2]); ?>
+
+                                </td>
                                 <td><?php echo e(date('m/d/Y',strtotime($event->created_at))); ?></td>
                                 <td><span class="<?php echo e($event->status); ?>"><?php echo e(strtoupper($event->status)); ?></span></td>
                                 <td>
@@ -84,8 +110,13 @@
 
 <script>
     $(document).ready(function () {
-        $('.table').DataTable();
-        $('.btn-del-event').on('click',function(){
+        $('.table').DataTable({
+            destroy: true,
+            scrollX:true,
+            scrollY:true,
+        });
+        $('.table').css({"width":"100%"});
+        $('.table').on('click','.btn-del-event',function(){
             let url = $(this).data('url');
             Swal.fire({
                 title: 'Are you sure you want to delete this event?',
