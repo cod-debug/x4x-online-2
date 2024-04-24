@@ -1,4 +1,4 @@
-o super<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
 <!-- Brand Logo -->
 <a href="#" class="brand-link text-center">
     <span class="brand-text font-weight-light" style="text-transform: uppercase; font-size:16px; font-weight:bold !important;">
@@ -91,7 +91,7 @@ o super<aside class="main-sidebar sidebar-dark-primary elevation-4">
         <li class="nav-item">
             <a href="{{ route('admins') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-secret"></i>
-                <p>General</p>
+                <p>Head Inco</p>
             </a>
         </li>
 
@@ -104,28 +104,23 @@ o super<aside class="main-sidebar sidebar-dark-primary elevation-4">
         <li class="nav-item">
             <a href="{{ route('sub.operators') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-secret"></i>
-                <p>Operator</p>
+                <p>Sub Operator</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ route('master.agents') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-secret"></i>
-                <p>Sub Operator</p>
+                <p>Agent</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ route('agents') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>
-                <p>Master Agent</p>
+                <p>Sub Agent</p>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a href="{{ route('silver.agents') }}" class="nav-link">
-                <i class="nav-icon fas fa-user-tie"></i>
-                <p>Agent</p>
-            </a>
-        </li>
+
         <li class="nav-item">
             <a href="{{ route('declarators') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-clock"></i>

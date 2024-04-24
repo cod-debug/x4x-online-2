@@ -40,18 +40,18 @@
                     </li>
                 </li> --}}
 
-                <li class="nav-item">
-                    <a href="{{ route('summary') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-area"></i>
-                        <p>Summary Report</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('load.logs') }}" class="nav-link">
-                        <i class="nav-icon fas fa-history"></i>
-                        <p>Load Logs</p>
-                    </a>
-                </li>
+                <!--<li class="nav-item">-->
+                <!--    <a href="{{ route('summary') }}" class="nav-link">-->
+                <!--        <i class="nav-icon fas fa-chart-area"></i>-->
+                <!--        <p>Summary Report</p>-->
+                <!--    </a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--    <a href="{{ route('load.logs') }}" class="nav-link">-->
+                <!--        <i class="nav-icon fas fa-history"></i>-->
+                <!--        <p>Load Logs</p>-->
+                <!--    </a>-->
+                <!--</li>-->
 
                 <li class="nav-item">
                     <a href="{{ route('commission.logs') }}" class="nav-link">
@@ -60,12 +60,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('withdraw.logs') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-bar"></i>
-                        <p>Withdrawal Logs</p>
-                    </a>
-                </li>
+                <!--<li class="nav-item">-->
+                <!--    <a href="{{ route('withdraw.logs') }}" class="nav-link">-->
+                <!--        <i class="nav-icon fas fa-chart-bar"></i>-->
+                <!--        <p>Withdrawal Logs</p>-->
+                <!--    </a>-->
+                <!--</li>-->
 
                 <li class="nav-header">Players</li>
 
@@ -88,14 +88,14 @@
                 </li>
 
                 <li class="nav-header">Users</li>
-                <li class="nav-item">
-                    <a href="{{ route('user.accounts') }}" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    All Accounts
-                                </p>
-                        </a>
-                </li>
+                <!--<li class="nav-item">-->
+                <!--    <a href="{{ route('user.accounts') }}" class="nav-link">-->
+                <!--            <i class="nav-icon fas fa-users"></i>-->
+                <!--                <p>-->
+                <!--                    All Accounts-->
+                <!--                </p>-->
+                <!--        </a>-->
+                <!--</li>-->
                 <li class="nav-item">
                     <a href="{{ route('operators') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-secret"></i>

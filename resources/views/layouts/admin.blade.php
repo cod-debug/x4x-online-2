@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
     <style>
         /* div,span,p,h1,h2,h3,h4,h5,h6,li,a,button{
             font-family: 'Chakra Petch', sans-serif !important;
@@ -18,6 +19,25 @@
         .topbar-links{
             color: #ffffff !important;
         }
+        
+        .sidebar{
+        background-color: #1F2024 !important;
+        opacity: 88%;
+        font-family: ""Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+" !important;
+        font-weight: 400 !important;
+        text-transform: uppercase;
+        }
+    
+        .navbar-dark{
+            background-color: #1F2024 !important;
+        }
+        
+        .brand-link{
+             background-color: #1F2024 !important;
+             opacity: 88%;
+        }
+
     </style>
     @yield('styles')
 </head>
