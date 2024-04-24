@@ -28,3 +28,7 @@ body {
     text-transform: unset!important;
     opacity: 1!important;
 }
+
+.layout-navbar-fixed .wrapper .main-header {
+    padding: .5rem 1.5rem;
+}
