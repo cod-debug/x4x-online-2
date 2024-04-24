@@ -320,7 +320,6 @@
                 </div>
 
                 @if(!in_array(Auth::user()->type, ['gold-agent', 'sub-operator', 'master-agent']))
-                {{Auth::user()->type}}
                     <div class="col-md-4 mt-1">
                         <div class="description-block">
                         <span class="description-percentage text-primary"> 
