@@ -42,13 +42,13 @@
                     </a>
                 </li>
 
-                <li class="nav-header">Points</li>
+                {{-- <li class="nav-header">Points</li>
                 <li class="nav-item">
                     <a href="{{ route('wallet') }}" class="nav-link">
                         <i class="nav-icon fas fa-wallet"></i>
                         <p class="text">Wallet</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-header">Players</li>
                 <li class="nav-item">

@@ -1,7 +1,30 @@
+body {
+    background: url('/images/bg3.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Montserrat,sans-serif!important;
+}
 .credits-container{
     width: 30%;
 }
 
 .btn{
     font-size: 12px !important;
+}
+
+.bg-darker {
+    background-color: #121212 !important;
+}
+
+.text-acc,
+.nav-header {
+    color: #ffec00!important;
+}
+.breadcrumb-item a {
+    color: #ffec00;
+}
+.sidebar {
+    font-family: Arvo, sans-serif!important;
+    text-transform: unset!important;
+    opacity: 1!important;
 }
