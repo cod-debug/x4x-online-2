@@ -103,7 +103,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-12" for="UserLogin_Username"><strong>Contact No.</strong></label>
                                         <div class="col-sm-12">
-                                            <input class="form-control input-lg " data-val="true" data-val-required="The Contact No field is required." id="UserProfile_Email" name="UserProfile.Email" type="text" value="">
+                                            <input class="form-control input-lg " data-val="true" data-val-required="The Contact No field is required." id="UserProfile_Email" name="contact_number" type="text" value="">
                                         </div>
                                     </div>
                                             <input type="hidden" class="form-control" value="{{$user->id}}" name="referred_by">

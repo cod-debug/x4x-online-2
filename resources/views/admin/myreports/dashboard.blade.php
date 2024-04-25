@@ -69,36 +69,35 @@
 @endsection
 @section('content')
 <!-- Info boxes -->
-<div class="px-2">
+<div class="p-2">
     <ol class="breadcrumb mb-0 bg-transparent p-0">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item text-white">Dashboard</li>
     </ol>
 
         @if(Auth::user()->type != 'super-admin')
-            <div class="row">
+            <div class="row mt-2">
                 <div class="col-md-12">
                     <div class="card alert alert-dark"  role="alert">
-                        <h3> {{ date('m/d/Y h:i:s A') }}</h3>
-                        <div style="font-size: 14px; color: black !important">
-                        <div class="card-body" style="background-color: #FFF3CD; font-family: 'Arvo', sans-serif;">
-                            <div class="text-uppercase" role="alert">
-                                    Please take notes of your refferal link below, All players that will register under this link will atomatically be under your account.
-                                </div>
-                                <div class="form-group text-center">
-                                    <input type="text" style="background-color: #FFF3CD;" id="link-input" class="text-center border-0 text-danger form-control" value="{{ route('register', Auth::user()->referral_code) }}">
-                                </div>
-                                
-                                <h2 class="form-group text-center"><b style=" color: #000;text-transform:uppercase;">TOTAL POINTS : {{number_format((Auth::user()->wallet->balance),2,".",",")}}</b></h2>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="arvo-font">
+                        <div class="arvo-font py-2 pb-4">
                             <div class="text-center">
-                                <button @onclick="copyToClipBoard('link-input')" style="font-size: 1.25rem !important; line-height: 1.5 !important;" class="btn btn-lg text-white btn-danger text-bold">COPY YOUR LINK</button>
+                                <a style="font-size: 1.25rem !important; line-height: 1.5 !important; text-decoration: none;" href="#" class="btn btn-lg text-white btn-warning text-bold">RAFFLE ENTRY</a>
                             </div>
                         </div>
+                        <div style="font-size: 14px; color: black !important">
+                            <div class="card-body" style="background-color: #FFF3CD; font-family: 'Arvo', sans-serif;">
+                                <p class="card-text" style="background-color: #fec20c; font-size: 14px; color: #000000; text-transform: uppercase; padding: 5px; "> Please take note of your refferal link below, All players that will register under this link will atomatically be under your account. </p>
+                                <div class="form-group text-center">
+                                    <input type="text" style="background-color: #FFF3CD;" readonly id="link-input" class="text-center border-0 text-danger form-control" value="{{ route('register', Auth::user()->referral_code) }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arvo-font pb-2 pt-4">
+                            <div class="text-center">
+                                <button onclick="copyToClipBoard('link-input')" style="font-size: 1.25rem !important; line-height: 1.5 !important;" class="btn btn-lg text-white btn-danger text-bold">COPY YOUR LINK</button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -272,38 +271,10 @@
                             <h5 class="card-title"><b>TOTAL COMMISSION: <strong class="text-danger text-lg">(1.50%)</strong></b></h5>
                             <br>
                             <br>
-                            <h2>Your Commission:</h2>
-                            <h2 class="text-white text-bold">{{Auth::user()->commission}}</h2>
+                            <h2>Your Commission: {{ Auth::user()->commission }}</h2>
                         </div>
                     </div>
                 </div>
-
-                    <div class="col-md-4 mt-1">
-                        <div class="description-block">
-                        <span class="description-percentage text-primary"> 
-                            <a href="{{ route('summary') }}" class="btn btn-danger btn-block btn-lg btn-log">SUMMARY</a></span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-1">
-                        <div class="description-block ">
-                            <span class="description-percentage text-primary"> <a href="{{ route('load.logs') }}" class="btn btn-warning btn-block btn-lg btn-log"> WALLET</a></span>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-1">
-                        <div class="description-block">
-                            <span class="description-percentage text-danger"> <a href="{{ route('user.accounts') }}" class="btn btn-primary btn-block btn-lg btn-log">DOWNLINES</a></span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-1">
-                        <div class="description-block">
-                            <span class="description-percentage text-danger"> <a href="/Points/CTW" class="btn btn-success btn-block btn-lg btn-log">CTW</a></span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-1">
-                        <div class="description-block">
-                            <span class="description-percentage text-danger"> <a href="{{ route('withdraw.logs') }}" class="btn btn-secondary btn-block btn-lg btn-log">COMM OUT</a></span>
-                        </div>
-                    </div>
             </div>
         @endif
 </div>
@@ -319,7 +290,6 @@
         copyText.setSelectionRange(0, 99999); /* For mobile devices */
         /* Copy the text inside the text field */
         navigator.clipboard.writeText(copyText.value);
-
         /* Alert the copied text */
         //alert("Referral link copied!");
     }

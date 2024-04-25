@@ -9,6 +9,8 @@ use App\Http\Controllers\CGController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AutoBetController;
+use App\Http\Controllers\PointsController;
+use App\Http\Controllers\MyReportsController;
 use App\Models\Event;
 use App\Models\Setting;
 use App\Models\Game;
@@ -81,6 +83,7 @@ Route::group(['middleware' => ['web','throttle:60,1']], function () {
     });
 
 });
+
 
 Route::post('/place-bet',[BetController::class,'placeBet'])->name('place.bet')->middleware(['auth']);
 // pang silip ng account
@@ -163,6 +166,13 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
     // Route::get('/test-event', function () {
     //     event(new \App\Events\Bet('LAST CALL'));
     // });
+    Route::get('check-dashboard', [UserController::class, 'redirections'])->name('check-dashboard');
+
+    Route::get('', [PointsController::class, 'index'])->name('points.index');
+
+    Route::group(['prefix' => 'my-reports'], function() {
+        Route::get('dashboard', [MyReportsController::class, 'dashboard'])->name('my-reports.dashboard');
+    });
 
     Route::get('/dashboard', function () {
         if(Auth::user()->type == 'player'){
@@ -302,9 +312,9 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
         if(Auth::user()->type != 'super-admin' && Auth::user()->type != 'declarator'){
             return redirect()->route('dashboard');
         }
-        if(Auth::user()->getRawOriginal('type') == 'declarator' && Auth::user()->id != $event->created_by){
-            abort(403,"You're not allowed to access this Event!");
-        }
+        // if(Auth::user()->getRawOriginal('type') == 'declarator' && Auth::user()->id != $event->created_by){
+        //     abort(403,"You're not allowed to access this Event!");
+        // }
 
 
         return view('admin.events.update',compact('event'));
@@ -1562,7 +1572,11 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
         ]);
     })->name('acc.summary');
 
-
+    Route::group(['prefix'=> 'points'], function () {
+        Route::get('history',[PointsController::class, 'history'])->name('points.history');
+        Route::get('archive',[PointsController::class, 'archive'])->name('points.archive');
+        Route::get('raffle-entry',[PointsController::class, 'raffleEntry'])->name('points.raffle-entry');
+    });
 });
 
 

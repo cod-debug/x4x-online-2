@@ -21,8 +21,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-user topbar-links"></i>
+        <a class="nav-link text-uppercase" data-toggle="dropdown" href="#">
             {{Auth::user()->username}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

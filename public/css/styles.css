@@ -2,7 +2,8 @@ body {
     background: url('/images/bg3.jpg') no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: Montserrat,sans-serif!important;
+    /* font-family: Montserrat,sans-serif!important; */
+    font-family: Arvo, sans-serif!important;
 }
 .credits-container{
     width: 30%;
@@ -17,9 +18,10 @@ body {
 }
 
 .text-acc,
-.nav-header {
-    color: #ffec00!important;
+.nav-header{
+    color: #f39c12!important;
 }
+
 .breadcrumb-item a {
     color: #ffec00;
 }
@@ -31,4 +33,33 @@ body {
 
 .layout-navbar-fixed .wrapper .main-header {
     padding: .5rem 1.5rem;
+}
+
+.content-wrapper {
+    background-color: transparent!important;
+}
+
+/* HEADER */
+.main-header .nav-link {
+    font-size: .875rem!important;
+}
+
+.main-header .nav-link.emphasized {
+    color: #f39c12!important;
+}
+
+/* CARDS */
+.card-warning>.card-header {
+    background-color: #f39c12!important;
+}
+
+/* BUTTONS */
+.btn-warning {
+    background-color: #f39c12!important;
+    color: #1f2d3d!important;
+    font-weight: normal;
+}
+
+.btn-warning:hover{
+    color: white!important;
 }

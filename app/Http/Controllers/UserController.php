@@ -20,6 +20,11 @@ class UserController extends Controller
             if(Auth::user()->status == 'active'){
                 if(checkRole(Auth::user()->type)){
                     saveIPAddress();
+                    if(in_array(Auth::user()->type ,['operator'])){
+                        return redirect()->route('points.index');
+                    } else if (in_array(Auth::user()->type ,['gold-agent', 'sub-operator', 'master-agent'])){
+                        return redirect()->route('my-reports.dashboard');
+                    }
                     return redirect()->route('dashboard');
                 }else{
                     saveIPAddress();
@@ -37,6 +42,14 @@ class UserController extends Controller
         }
     }
 
+    public function redirections(){
+        if(in_array(Auth::user()->type ,['operator'])){
+            return redirect()->route('points.index');
+        } else if (in_array(Auth::user()->type ,['gold-agent', 'sub-operator', 'master-agent'])){
+            return redirect()->route('my-reports.dashboard');
+        }
+        return redirect()->route('dashboard');
+    }
     public function createUser(Request $request){
         $validated = $request->validate([
             'username' => 'required|unique:users',

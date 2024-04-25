@@ -8,83 +8,47 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-header">Player</li>
+                <li class="nav-item">
+                    <a href="{{ route('check-dashboard') }}" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('points.history') }}" class="nav-link">
+                        <i class="nav-icon fas fa-money-bill-wave"></i>
+                        <p>Points</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('points.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p>Bets</p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('dashboard') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        <i class="nav-icon fa fa-chart-pie"></i>
+                        <p>Inco</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('summary') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-area"></i>
-                        <p>Summary Report</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('load.logs') }}" class="nav-link">
-                        <i class="nav-icon fas fa-history"></i>
-                        <p>Load Logs</p>
+                    <a href="{{ route('points.raffle-entry') }}" class="nav-link">
+                        <i class="nav-icon fa fa-chart-pie"></i>
+                        <p>Raffle</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('commission.logs') }}" class="nav-link">
-                        <i class="nav-icon fas fa-chart-line"></i>
-                        <p>Commission Logs</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('withdraw.logs') }}" class="nav-link">
+                    <a href="{{ route('points.archive') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-bar"></i>
-                        <p>Withdrawal Logs</p>
+                        <p>Archive</p>
                     </a>
                 </li>
-
-                <li class="nav-header">Points</li>
-                <li class="nav-item">
-                    <a href="{{ route('wallet') }}" class="nav-link">
-                        <i class="nav-icon fas fa-wallet"></i>
-                        <p class="text">Wallet</p>
-                    </a>
-                </li>
-
-                <li class="nav-header">Players</li>
-                <li class="nav-item">
-                    <a href="{{ route('sub.operators') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Operator</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('players') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Active Players
-                            </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('pending.players') }}" class="nav-link">
-                        <i class="nav-icon fas fa-user-check"></i>
-                            <p>
-                                Approval Players
-                            </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('deleted.accounts') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users-slash"></i>
-                            <p>
-                                Deleted Players
-                            </p>
-                    </a>
-                </li>
-
-
 
                 <li class="nav-header">Settings</li>
 
