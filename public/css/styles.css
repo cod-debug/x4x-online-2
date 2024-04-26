@@ -1,5 +1,5 @@
 body {
-    background: url('/images/bg3.jpg') no-repeat;
+    background: url('/images/bg2.jpg') no-repeat;
     background-size: cover;
     background-attachment: fixed;
     /* font-family: Montserrat,sans-serif!important; */
@@ -24,6 +24,9 @@ body {
 
 .breadcrumb-item a {
     color: #ffec00;
+}
+.breadcrumb-item .active {
+    color: #adb5bd!important;
 }
 .sidebar {
     font-family: Arvo, sans-serif!important;

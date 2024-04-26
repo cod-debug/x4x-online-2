@@ -31,14 +31,14 @@
                 <li class="nav-item">
                     <a href="{{ route('commission.logs') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-line"></i>
-                        <p>Commission Logs</p>
+                        <p>Comm Logs</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('withdraw.logs') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-bar"></i>
-                        <p>Withdrawal Logs</p>
+                        <p>Comm Withdrawal</p>
                     </a>
                 </li>
 

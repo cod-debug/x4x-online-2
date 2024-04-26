@@ -13,8 +13,20 @@
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active text-light">Archive</li>
         </ol>
-        <div>
-            <p class="alert alert-warning">This page is under development</p>
+        <div class="mt-2">
+            <div class="card bg-dark">
+                <div class="card-header">
+                    <h3>{{ date('m/d/Y h:i:s A') }}</h3>
+                </div>
+            </div>
+            <div class="card bg-dark">
+                <div class="card-header ">
+                    <h3 class="card-title"> CLICK DATES </h3>
+                    <div class="card-tools">
+                        <a href="#" target="_blank">20231210</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
