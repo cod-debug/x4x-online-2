@@ -5,6 +5,9 @@
         font-size: 13px;
         font-style: italic;
     }
+    .content-wrapper {
+        background-color: transparent!important;
+    }
 </style>
 @endsection
 @section('content')

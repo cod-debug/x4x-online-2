@@ -65,6 +65,9 @@
         font-size: 1.25rem !important;
         line-height: 1.5 !important;
     }
+    .content-wrapper {
+        background-color: transparent!important;
+    }
 </style>
 @endsection
 @section('content')

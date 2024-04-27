@@ -1002,6 +1002,19 @@ Route::group(['prefix' => 'portal', 'middleware' =>['auth','throttle:60,1']], fu
 
         return view('admin.wallet.withdraws',compact('withdraws'));
     })->name('withdraw.logs');
+    
+    Route::get('/agent-withdraw-logs', function () {
+        $withdraws = \DB::table('transactions as tx')
+                ->join('withdraws as w','w.id','=','tx.withdraw_id')
+                ->join('users as to','to.id','=','w.requested_by')
+                ->join('users as fr','fr.id','=','w.requested_to')
+                ->select('to.username as user_to','fr.username as user_from','tx.*')
+                ->where('tx.user_id',Auth::id())
+                ->orderBy('tx.id','DESC')
+                ->get();
+
+        return view('admin.myreports.agents-withdrawal',compact('withdraws'));
+    })->name('agent.withdraw.logs');
 
     Route::get('/player-transactions', function () {
         if(Auth::user()->type != 'player'){

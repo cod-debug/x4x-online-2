@@ -36,7 +36,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('withdraw.logs') }}" class="nav-link">
+                    <a href="{{ route('agent.withdraw.logs') }}" class="nav-link">
                         <i class="nav-icon fas fa-chart-bar"></i>
                         <p>Comm Withdrawal</p>
                     </a>
